@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Gallery, Painting } = require('../models');
+const { Gallery, Painting, Dashboard, Blog } = require('../models');
 
 // GET all galleries for homepage
 router.get('/', async (req, res) => {
@@ -18,6 +18,24 @@ router.get('/', async (req, res) => {
     );
     res.render('homepage', {
       galleries,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// get all blog posts for homepage
+router.get('/blog', async (req, res) => {
+  try {
+    const dbBlogData = await Blog.findAll();
+
+    const blogs = dbBlogData.map((blog) =>
+      blog.get({ plain: true })
+    );
+    res.render('blog', {
+      blogs,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
@@ -53,6 +71,19 @@ router.get('/gallery/:id', async (req, res) => {
   }
 });
 
+// GET one blog post
+router.get('/blog/:id', async (req, res) => {
+  try {
+    const dbBlogData = await Blog.findByPk(req.params.id) 
+
+    const blog = dbBlogData.get({ plain: true });
+    res.render('blog', { blog, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 // GET one painting
 router.get('/painting/:id', async (req, res) => {
   try {
@@ -60,6 +91,22 @@ router.get('/painting/:id', async (req, res) => {
 
     const painting = dbPaintingData.get({ plain: true });
     res.render('painting', { painting, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+
+// Get Dashboard data.. users blog posts
+router.get('/dashboard', async (req, res) => {
+  try {
+    const dashboardData = await Dashboard.findAll();
+
+    const dashboard = dashboardData.map((dashboard) => 
+    dashboard.get({plain: true})
+    );
+    res.render('dashboard', { dashboard, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
