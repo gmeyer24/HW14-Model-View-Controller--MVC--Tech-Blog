@@ -1,12 +1,36 @@
-<section class="container">
-  {{!-- <h3 class="gallery-name">{{blog.title}}</h3>
-  <h4>Posted on: {{format_date blog.posted_date}}</h4> --}}
-  {{#if loggedIn}}
-  <section class="flex-row justify-center">
-    {{#each blogs as |blog|}}
-    {{> blog-details}}
-    {{/each}}
-  </section>
+{{#if loggedIn}}
+<section class="card">
+  {{!-- <a href="/blog/{{blog.id}}"> --}}
+    <header>
+      <h2>{{blog.title}}</h2>
+      <p>Date Posted: {{format_date blog.posted_date}}</p>
+    </header>
+    <div class="card-body">
+      <!-- Display post details -->
+      {{#each blog.posts as |post|}}
+        <h3>By: {{post.author}}</h3>
+        <p>{{post.contents}}</p>
+      {{/each}}
+      
+     <!-- Comment Form -->
+      <form action="/blog/{{blog.id}}/comment" method="post">
+        <textarea name="commentContent" placeholder="Write your comment here"></textarea>
+        <button type="submit">Submit Comment</button>
+      </form>
+
+       <!-- Display Comment -->
+       {{#if blog.comments.length}}
+      <h4>Comments:</h4>
+      <ul>
+        {{#each blog.comments as |comment|}}
+          <li>{{comment.content}} - by {{comment.user.username}}</li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>No comments yet.</p>
+    {{/if}}
+    </div>
+  {{!-- </a> --}}
 </section>
 {{else}}
 <a href="/login">You must login first to view this page</a>

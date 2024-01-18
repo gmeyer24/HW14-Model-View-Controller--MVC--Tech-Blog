@@ -1,7 +1,20 @@
 {{#if loggedIn}}
-<section>
-  <div>
-    <h2>Dashboard</h2>
+<section class="card">
+    <header>Dashboard</header>
+  <div class="card-body">
+    {{#if blog.length}}
+    <ul>
+      {{#each user.blog.post as |post|}}
+        <li>
+          <h3>{{post.title}}</h3>
+          <p>{{post.contents}}</p>
+          <!-- Add other post details as needed -->
+        </li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p>No posts yet.</p>
+  {{/if}}
   </div>
 </section>
 {{else}}

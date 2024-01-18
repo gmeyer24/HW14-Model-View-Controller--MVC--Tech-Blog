@@ -1,12 +1,42 @@
-{{#if loggedIn}}
+{{!-- {{#if loggedIn}}
 <section class="painting">
-  <img src="/images/{{painting.filename}}" alt="{{painting.description}}">
+    POSTS
   <div class="painting-details">
-    <h3>{{painting.title}}</h3>
-    <p>By: {{painting.artist}}</p>
-    <p>Exhibition open until: {{ format_date painting.exhibition_date}}</p>
+    <h3>{{post.title}}</h3>
+    <p>By: {{post.author}}</p>
+    <p>{{ post.contents }}</p>
   </div>
 </section>
 {{else}}
 <a href="/login">You must login first to view this page</a>
-{{/if}}
+{{/if}} --}}
+
+{{!-- {{#if loggedIn}}
+<section class="painting">
+    POSTS
+  <div class="painting-details">
+   {{#each posts as |post|}}
+    {{> post-details}}
+    {{/each}}
+  </div>
+</section>
+{{else}}
+<a href="/login">You must login first to view this page</a>
+{{/if}} --}}
+
+
+
+
+{{!-- <section class="container">
+  <h3 class="gallery-name">{{blog.title}}</h3>
+  <h4>Posted on: {{format_date blog.posted_date}}</h4>
+  {{#if loggedIn}}
+  <section class="flex-row justify-center">
+    {{#each blogs.posts as |post|}}
+    {{> post-details}}
+    {{/each}}
+  </section>
+</section>
+{{else}}
+<a href="/login">You must login first to view this page</a>
+{{/if}} --}}

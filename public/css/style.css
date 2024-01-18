@@ -69,7 +69,7 @@ nav a:hover {
 .gallery {
   flex: 4;
   background-color: #fff;
-  padding: 50px;
+  padding: 100px;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
