@@ -1,20 +1,32 @@
 {{#if loggedIn}}
 <section class="card">
-    <header>Dashboard</header>
+    <header>Create a Post</header>
   <div class="card-body">
-    {{#if blog.length}}
-    <ul>
-      {{#each user.blog.post as |post|}}
-        <li>
-          <h3>{{post.title}}</h3>
-          <p>{{post.contents}}</p>
-          <!-- Add other post details as needed -->
-        </li>
-      {{/each}}
-    </ul>
-  {{else}}
-    <p>No posts yet.</p>
-  {{/if}}
+    <form action="/dashboard/createpost" method="post">
+    <label for="postTitle">Title:</label>
+  <input type="text" id="postTitle" name="postTitle" placeholder="Enter post title">
+  <br/>
+  <textarea name="postContent" placeholder="Write your post here"></textarea>
+  <br/>
+  <button type="submit">Create Post</button>
+</form>
+
+<!-- Display Posts -->
+{{#if posts.length}}
+  <h4>Posts:</h4>
+  <ul>
+    {{#each posts as |post|}}
+      <li>
+        <h3>{{post.username}}'s Post</h3>
+        <p>{{post.content}}</p>
+        <p>Posted on: {{formatDate post.posted_date}}</p>
+        <!-- Add more details or styling as needed -->
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>No posts yet.</p>
+{{/if}}
   </div>
 </section>
 {{else}}

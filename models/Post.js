@@ -11,6 +11,10 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     author: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -19,12 +23,9 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    blog_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'blog',
-        key: 'id',
-      },
+    posted_date: {
+      type: DataTypes.DATE,
+      allowNull: false,
     },
   },
   {

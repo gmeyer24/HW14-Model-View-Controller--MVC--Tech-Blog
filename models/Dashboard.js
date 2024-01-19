@@ -11,10 +11,10 @@ Dashboard.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    blog_id: {
+    post_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "blog",
+        model: "post",
         key: "id",
       },
     },
