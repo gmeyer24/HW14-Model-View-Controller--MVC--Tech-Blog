@@ -14,7 +14,8 @@
       
      <!-- Comment Form -->
       <form action="/blog/{{blog.id}}/comment" method="post">
-        <textarea name="commentContent" placeholder="Write your comment here"></textarea>
+        <textarea name="commentContent" placeholder="Write your comment here"></textarea> 
+        <br/>
         <button type="submit">Submit Comment</button>
       </form>
 
@@ -23,7 +24,7 @@
       <h4>Comments:</h4>
       <ul>
         {{#each blog.comments as |comment|}}
-          <li>{{comment.content}} - by {{comment.user.username}}</li>
+          <li>{{comment.content}} - by {{comment.user.username}} on {{format_date comment.posted_date}} </li>
         {{/each}}
       </ul>
     {{else}}
@@ -35,3 +36,5 @@
 {{else}}
 <a href="/login">You must login first to view this page</a>
 {{/if}}
+
+{{!-- change name to Post --}}

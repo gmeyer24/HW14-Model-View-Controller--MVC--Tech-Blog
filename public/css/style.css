@@ -70,8 +70,8 @@ nav a:hover {
   flex: 4;
   background-color: #fff;
   padding: 100px;
-  display: flex;
-  flex-flow: row wrap;
+  /* display: flex;
+  flex-flow: row wrap; */
   justify-content: center;
   align-items: center;
 }

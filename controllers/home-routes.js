@@ -1,38 +1,5 @@
 const router = require("express").Router();
-const {
-  Gallery,
-  Painting,
-  Dashboard,
-  Blog,
-  Post,
-  Comment,
-  User,
-} = require("../models");
-
-// GET all galleries for homepage
-// router.get('/', async (req, res) => {
-//   try {
-//     const dbGalleryData = await Gallery.findAll({
-//       include: [
-//         {
-//           model: Painting,
-//           attributes: ['filename', 'description'],
-//         },
-//       ],
-//     });
-
-//     const galleries = dbGalleryData.map((gallery) =>
-//       gallery.get({ plain: true })
-//     );
-//     res.render('homepage', {
-//       galleries,
-//       loggedIn: req.session.loggedIn,
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
+const { Dashboard, Blog, Post, Comment, User } = require("../models");
 
 // get all blog posts for homepage
 router.get("/", async (req, res) => {
@@ -49,33 +16,6 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-// GET one gallery
-// router.get('/gallery/:id', async (req, res) => {
-//   try {
-//     const dbGalleryData = await Gallery.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: Painting,
-//           attributes: [
-//             'id',
-//             'title',
-//             'artist',
-//             'exhibition_date',
-//             'filename',
-//             'description',
-//           ],
-//         },
-//       ],
-//     });
-
-//     const gallery = dbGalleryData.get({ plain: true });
-//     res.render('gallery', { gallery, loggedIn: req.session.loggedIn });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
 
 // GET one blog post
 router.get("/blog/:id", async (req, res) => {
@@ -106,19 +46,6 @@ router.get("/blog/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-// GET one painting
-// router.get('/painting/:id', async (req, res) => {
-//   try {
-//     const dbPaintingData = await Painting.findByPk(req.params.id);
-
-//     const painting = dbPaintingData.get({ plain: true });
-//     res.render('painting', { painting, loggedIn: req.session.loggedIn });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
 
 // add comment
 router.post("/blog/:id/comment", async (req, res) => {
@@ -151,8 +78,8 @@ router.post("/blog/:id/comment", async (req, res) => {
       content: commentContent,
       username: username,
       posted_date: currentDate,
-      BlogId: blogId,
-      UserId: userId,
+      blog_id: blogId,
+      user_id: userId,
     });
 
     console.log("New Comment:", newComment);

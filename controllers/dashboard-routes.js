@@ -17,7 +17,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
       // Fetch all posts by the logged-in user
       const userPosts = await Dashboard.findAll({
         where: {
-          UserId: userId,
+          user_id: userId,
         },
         // You can include other options like order, attributes, etc.
       });
