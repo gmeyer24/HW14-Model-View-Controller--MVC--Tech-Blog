@@ -15,11 +15,6 @@ Comment.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    posted_date: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-
   },
   {
     sequelize,
