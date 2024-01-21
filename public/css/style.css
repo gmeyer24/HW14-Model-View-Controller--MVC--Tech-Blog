@@ -1,7 +1,7 @@
 :root {
-  --primary: #3d5852;
-  --secondary: #86938f;
-  --tertiary: #5e877f;
+  --primary: black;
+  --secondary: #670667;
+  --tertiary: purple;
   --quatrinary: #6c6b67;
   --light: #e3e4e3;
   --dark: #182c23;
@@ -52,6 +52,7 @@ aside {
 nav {
   display: flex;
   background-color: var(--secondary);
+  color: var(--light);
 }
 
 nav a {
@@ -63,17 +64,18 @@ nav a {
 
 nav a:hover {
   color: var(--secondary);
-  background-color: var(--dark);
+  background-color: var(--light);
 }
 
-.gallery {
-  flex: 4;
+.blog {
+  /* flex: 4; */
   background-color: #fff;
-  padding: 100px;
-  /* display: flex;
-  flex-flow: row wrap; */
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  padding: 50px;
 }
 
 .btn-no-style {
@@ -85,14 +87,10 @@ nav a:hover {
   font-size: 100%;
   transition: color 0.1s;
   margin-left: 16px;
+  color: var(--light);
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-.painting {
+/* .painting {
   width: 50%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -103,16 +101,29 @@ img {
   text-align: center;
   padding: 10px 20px;
   font-weight: bold;
-}
+} */
 
 /* CARDS */
 .card {
   margin: 20px;
-  flex: 0 1 300px;
+  flex: 0 1 calc(100% - 40px);
   border: 7px double var(--dark);
   border-radius: 10px;
   background-color: var(--light);
   color: var(--dark);
+  width: 100%;
+  text-align: center;
+}
+
+.card-section {
+  margin: 20px;
+  flex: 0 1 calc(100% - 40px);
+  border: 7px double var(--dark);
+  border-radius: 10px;
+  background-color: var(--light);
+  color: var(--dark);
+  width: 95%;
+  text-align: center;
 }
 
 .login-card {
@@ -124,7 +135,7 @@ img {
   border-radius: var(--border-radius);
   border-style: double;
   border-width: thick;
-  background-color: #577a7c;
+  background-color: #670667;
   color: var(--light);
 }
 
@@ -142,9 +153,35 @@ img {
   font-size: 1.4rem;
   text-align: center;
   font-weight: bold;
+  padding: 10px;
 }
 
-.gallery-name {
+.comment-body {
+  font-size: 1.4rem;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  max-height: 150px;
+  overflow-y: auto;
+  box-sizing: border-box; /* Ensure padding and border are included in the height calculation */
+}
+
+.card-body textarea {
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  box-sizing: border-box; 
+}
+
+.card-body p {
+  max-width: 100%;
+  margin: 0 auto;
+  word-wrap: break-word;
+}
+
+
+
+/* .gallery-name {
   text-transform: uppercase;
   letter-spacing: 3px;
   text-shadow: 2px 2px 5px var(--secondary);
@@ -153,7 +190,7 @@ img {
   padding-bottom: 30px;
   padding-right: 100px;
   padding-left: 100px;
-}
+} */
 
 /* LAYOUT */
 .container {
