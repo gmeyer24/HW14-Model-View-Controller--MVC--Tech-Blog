@@ -18,8 +18,8 @@
   <div class="card-body">
     <form id="newComment">
       <input type="hidden" value="{{post.id}}" id="postId">
-      <textarea id="commentContent" placeholder="Write your comment here"></textarea>
-      <br />
+     <div class="card-body"> <textarea id="commentContent" placeholder="Write your comment here"></textarea>
+     </div>
       <button type="submit">Submit Comment</button>
     </form>
   </div>
@@ -54,5 +54,3 @@
 {{#if loggedIn}}
 <script src="/js/comment.js"></script>
 {{/if}}
-
-

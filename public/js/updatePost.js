@@ -2,8 +2,7 @@ const updatePost = async (e) => {
   e.preventDefault();
 
   // capture the content from the new post form
-
-  const postId = document.getElementById('postId').value
+  const postId = document.getElementById("postId").value;
 
   const title = document.getElementById("postTitle").value;
   const contents = document.getElementById("postContent").value;
@@ -14,11 +13,10 @@ const updatePost = async (e) => {
       body: JSON.stringify({
         // add contents to be inserted into the DB
         title: title,
-        contents:contents,
+        contents: contents,
       }),
       headers: { "Content-Type": "application/json" },
     });
-    
 
     document.location.replace("/dashboard");
   } else {
