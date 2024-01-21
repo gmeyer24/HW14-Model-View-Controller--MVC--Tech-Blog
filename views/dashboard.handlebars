@@ -1,34 +1,23 @@
-{{#if loggedIn}}
-<section class="card">
-    <header>Create a Post</header>
-  <div class="card-body">
-    <form action="/dashboard/createpost" method="post">
-    <label for="postTitle">Title:</label>
-  <input type="text" id="postTitle" name="postTitle" placeholder="Enter post title">
-  <br/>
-  <textarea name="postContent" placeholder="Write your post here"></textarea>
-  <br/>
-  <button type="submit">Create Post</button>
-</form>
+<section class="card-body">
+  <button class="card-body"><a href="/dashboard/create">Create Post</a></button>
+</section>
 
 <!-- Display Posts -->
 {{#if posts.length}}
-  <h4>Posts:</h4>
-  <ul>
-    {{#each posts as |post|}}
-      <li>
-        <h3>{{post.username}}'s Post</h3>
-        <p>{{post.content}}</p>
-        <p>Posted on: {{formatDate post.posted_date}}</p>
-        <!-- Add more details or styling as needed -->
-      </li>
-    {{/each}}
-  </ul>
-{{else}}
-  <p>No posts yet.</p>
-{{/if}}
-  </div>
+<section class="card">
+  <h4 class="card-body">Posts:</h4>
 </section>
+<p>
+  {{#each posts as |post|}}
+<section class="card">
+  <a href="/dashboard/edit/{{post.id}}">
+    <header>Title: {{post.title}}</header>
+    <p>Posted on: {{format_date post.createdAt}}</p>
+  </a>
+</section>
+{{/each}}
+</p>
 {{else}}
-<a href="/login">You must login first to view this page</a>
+<p>No posts yet.</p>
 {{/if}}
+</div>

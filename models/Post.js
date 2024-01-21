@@ -15,18 +15,13 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    author: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     contents: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    posted_date: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
+    // posted_date: {
+    //   type: DataTypes.DATE,
+    // },
   },
   {
     sequelize,
