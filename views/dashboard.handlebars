@@ -8,7 +8,7 @@
   {{#each posts as |post|}}
 <section class="card">
   <a href="/dashboard/edit/{{post.id}}">
-    <header>Title: {{post.title}}</header>
+    <header>{{post.title}}</header>
     <p>Posted on: {{format_date post.createdAt}}</p>
   </a>
 </section>
