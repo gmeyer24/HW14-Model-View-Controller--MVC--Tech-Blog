@@ -1,3 +1,5 @@
+// dont run or use
+
 const { Post } = require('../models');
 
 const postdata = [
