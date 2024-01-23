@@ -85,7 +85,7 @@
 <!-- Enter Description Below -->
 The goal of this project was to build a CMS-style blog site similar to a Wordpress site. Developers can publish their blog posts and comment on other developers’ posts as well. The application follows the MVC paradigm in its architectural strcuture. It uses Handlebars.js as the templating language, Sequeliza as the ORM, and express-session npm package for authentication. 
 
-[![Gavin's Tech Blog Deployed Link](assets/images/homepage.png)]()
+[![Gavin's Tech Blog Deployed Link](assets/images/homepage.png)](https://gavins-tech-blog.onrender.com/)
 
 <!-- Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `gmeyer24`, `HW14-Model-View-Controller--MVC--Tech-Blog`, `gavinpmeyer`, `gmail`, `gpmeyer24`, `HW14-Model-View-Controller--MVC--Tech-Blog`, `project_description` -->
 
@@ -225,7 +225,7 @@ Gavin Meyer | Email: gpmeyer24@gmail.com | GitHub: gmeyer24
 
 Project Link: [GitHub Link](https://github.com/gmeyer24/HW14-Model-View-Controller--MVC--Tech-Blog)
 
-Deployed Link: [Gavin's Tech Blog]()
+Deployed Link: [Gavin's Tech Blog](https://gavins-tech-blog.onrender.com/)
 
 <p align="right">(<a href="#readme-top">Back To Top</a>)</p>
 
